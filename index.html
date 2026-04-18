@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Quick Tidy ✨</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #FFF8F0;
@@ -29,7 +28,7 @@
 
 body {
 background: var(–cream);
-font-family: ‘DM Sans’, sans-serif;
+font-family: -apple-system, ‘Helvetica Neue’, Arial, sans-serif;
 color: var(–ink);
 min-height: 100vh;
 padding-bottom: 40px;
@@ -46,25 +45,25 @@ box-shadow: 0 3px 12px rgba(255,107,91,0.3);
 }
 
 header h1 {
-font-family: ‘Fraunces’, serif;
 font-size: 1.7rem;
+font-weight: 800;
 color: #fff;
 letter-spacing: -0.5px;
 }
 
 header .subtitle {
-color: rgba(255,255,255,0.85);
-font-size: 0.8rem;
-font-weight: 500;
-margin-top: 2px;
-letter-spacing: 0.5px;
+color: rgba(255,255,255,0.9);
+font-size: 0.75rem;
+font-weight: 600;
+margin-top: 3px;
+letter-spacing: 0.8px;
 text-transform: uppercase;
 }
 
 .progress-bar-wrap {
 background: rgba(255,255,255,0.3);
 border-radius: 20px;
-height: 8px;
+height: 9px;
 margin: 12px 20px 0;
 overflow: hidden;
 }
@@ -79,10 +78,10 @@ width: 0%;
 
 .progress-label {
 text-align: center;
-color: rgba(255,255,255,0.9);
+color: rgba(255,255,255,0.95);
 font-size: 0.75rem;
-font-weight: 600;
-margin-top: 6px;
+font-weight: 700;
+margin-top: 7px;
 }
 
 .rooms {
@@ -97,11 +96,10 @@ background: var(–warm-white);
 border-radius: 16px;
 border: 1.5px solid var(–border);
 overflow: hidden;
-transition: box-shadow 0.2s;
 }
 
 .room-card.done {
-opacity: 0.6;
+opacity: 0.55;
 border-color: transparent;
 }
 
@@ -110,6 +108,7 @@ display: flex;
 align-items: center;
 padding: 14px 16px;
 cursor: pointer;
+-webkit-tap-highlight-color: transparent;
 user-select: none;
 gap: 12px;
 }
@@ -120,25 +119,26 @@ flex-shrink: 0;
 }
 
 .room-title {
-font-family: ‘Fraunces’, serif;
-font-size: 1.1rem;
-font-weight: 700;
+font-size: 1.05rem;
+font-weight: 800;
 flex: 1;
 }
 
 .room-count {
-font-size: 0.75rem;
-font-weight: 600;
-padding: 3px 9px;
+font-size: 0.72rem;
+font-weight: 700;
+padding: 4px 10px;
 border-radius: 20px;
 flex-shrink: 0;
+color: #fff;
 }
 
 .room-chevron {
-font-size: 0.9rem;
+font-size: 0.8rem;
 color: var(–mid);
 transition: transform 0.2s;
 flex-shrink: 0;
+margin-left: 2px;
 }
 
 .room-card.open .room-chevron {
@@ -146,17 +146,17 @@ transform: rotate(180deg);
 }
 
 .room-done-badge {
-font-size: 0.75rem;
+font-size: 0.72rem;
 font-weight: 700;
 color: var(–sage);
 background: var(–sage-light);
-padding: 3px 10px;
+padding: 4px 10px;
 border-radius: 20px;
 }
 
 .task-list {
 display: none;
-padding: 0 16px 14px;
+padding: 0 14px 14px;
 flex-direction: column;
 gap: 8px;
 }
@@ -167,40 +167,28 @@ display: flex;
 
 .task-item {
 display: flex;
-align-items: flex-start;
+align-items: center;
 gap: 12px;
-padding: 10px 12px;
+padding: 11px 13px;
 border-radius: 10px;
-background: var(–cream);
+background: #fff;
 border: 1.5px solid var(–border);
 cursor: pointer;
-transition: all 0.25s ease;
-animation: slideIn 0.2s ease forwards;
-}
-
-@keyframes slideIn {
-from { opacity: 0; transform: translateY(-6px); }
-to { opacity: 1; transform: translateY(0); }
+-webkit-tap-highlight-color: transparent;
 }
 
 .task-checkbox {
-width: 22px;
-height: 22px;
-border-radius: 6px;
+width: 24px;
+height: 24px;
+border-radius: 7px;
 border: 2px solid var(–border);
 flex-shrink: 0;
 display: flex;
 align-items: center;
 justify-content: center;
-font-size: 0.9rem;
-transition: all 0.2s;
+font-size: 0.85rem;
+font-weight: 700;
 background: #fff;
-margin-top: 1px;
-}
-
-.task-item.checked .task-checkbox {
-background: var(–sage);
-border-color: var(–sage);
 color: #fff;
 }
 
@@ -208,70 +196,94 @@ color: #fff;
 font-size: 0.9rem;
 line-height: 1.4;
 font-weight: 500;
-transition: all 0.2s;
 flex: 1;
+}
+
+.nudge {
+font-size: 0.73rem;
+color: var(–mid);
+text-align: center;
+padding: 4px 0 0;
+font-weight: 600;
+}
+
+.all-done-msg {
+text-align: center;
+padding: 6px 0 0;
+font-size: 0.88rem;
+color: var(–sage);
+font-weight: 700;
 }
 
 /* Room color themes */
 .room-kitchen .room-header { background: var(–gold-light); }
-.room-kitchen .room-title { color: #8B6914; }
-.room-kitchen .room-count { background: var(–goldenrod); color: #fff; }
+.room-kitchen .room-title  { color: #8B6914; }
+.room-kitchen .room-count  { background: var(–goldenrod); }
 
-.room-dining .room-header { background: var(–coral-light); }
-.room-dining .room-title { color: #C4391C; }
-.room-dining .room-count { background: var(–coral); color: #fff; }
+.room-dining .room-header  { background: var(–coral-light); }
+.room-dining .room-title   { color: #C4391C; }
+.room-dining .room-count   { background: var(–coral); }
 
-.room-family .room-header { background: var(–sky-light); }
-.room-family .room-title { color: #2277A0; }
-.room-family .room-count { background: var(–sky); color: #fff; }
+.room-family .room-header  { background: var(–sky-light); }
+.room-family .room-title   { color: #2277A0; }
+.room-family .room-count   { background: var(–sky); }
 
-.room-living .room-header { background: var(–plum-light); }
-.room-living .room-title { color: #6B3B6B; }
-.room-living .room-count { background: var(–plum); color: #fff; }
+.room-living .room-header  { background: var(–plum-light); }
+.room-living .room-title   { color: #6B3B6B; }
+.room-living .room-count   { background: var(–plum); }
 
 .room-halfbath .room-header { background: var(–sage-light); }
-.room-halfbath .room-title { color: #3B6B44; }
-.room-halfbath .room-count { background: var(–sage); color: #fff; }
+.room-halfbath .room-title  { color: #3B6B44; }
+.room-halfbath .room-count  { background: var(–sage); }
 
 .room-fullbath1 .room-header { background: #E8F0FF; }
-.room-fullbath1 .room-title { color: #2D4CA0; }
-.room-fullbath1 .room-count { background: #5B7FDB; color: #fff; }
+.room-fullbath1 .room-title  { color: #2D4CA0; }
+.room-fullbath1 .room-count  { background: #5B7FDB; }
 
 .room-fullbath2 .room-header { background: #FFF0F5; }
-.room-fullbath2 .room-title { color: #A03060; }
-.room-fullbath2 .room-count { background: #DB5B8A; color: #fff; }
+.room-fullbath2 .room-title  { color: #A03060; }
+.room-fullbath2 .room-count  { background: #DB5B8A; }
 
-.room-stairs .room-header { background: #F5EEE8; }
-.room-stairs .room-title { color: #7A5030; }
-.room-stairs .room-count { background: #C4845A; color: #fff; }
+.room-stairs .room-header  { background: #F5EEE8; }
+.room-stairs .room-title   { color: #7A5030; }
+.room-stairs .room-count   { background: #C4845A; }
 
+/* Congrats screen */
 .congrats {
 display: none;
 text-align: center;
-padding: 30px 20px;
-font-family: ‘Fraunces’, serif;
+padding: 50px 24px 30px;
 }
 .congrats.show { display: block; }
-.congrats .big { font-size: 3rem; }
-.congrats h2 { font-size: 1.5rem; margin-top: 8px; color: var(–coral); }
-.congrats p { color: var(–mid); margin-top: 6px; font-family: ‘DM Sans’, sans-serif; }
+.congrats .big { font-size: 3.5rem; }
+.congrats h2 {
+font-size: 1.6rem;
+font-weight: 800;
+margin-top: 10px;
+color: var(–coral);
+}
+.congrats p {
+color: var(–mid);
+margin-top: 8px;
+font-size: 0.95rem;
+line-height: 1.5;
+}
 
 .reset-btn {
-display: block;
-margin: 16px auto 0;
+display: inline-block;
+margin-top: 24px;
 background: var(–coral);
 color: #fff;
 border: none;
 border-radius: 30px;
-padding: 12px 32px;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.9rem;
-font-weight: 600;
+padding: 14px 36px;
+font-size: 0.95rem;
+font-weight: 700;
 cursor: pointer;
-box-shadow: 0 4px 12px rgba(255,107,91,0.35);
-transition: transform 0.15s, box-shadow 0.15s;
+-webkit-tap-highlight-color: transparent;
+box-shadow: 0 4px 14px rgba(255,107,91,0.4);
 }
-.reset-btn:active { transform: scale(0.97); }
+.reset-btn:active { opacity: 0.85; }
 </style>
 
 </head>
@@ -287,10 +299,11 @@ transition: transform 0.15s, box-shadow 0.15s;
 </header>
 
 <div class="rooms" id="roomsContainer"></div>
+
 <div class="congrats" id="congrats">
   <div class="big">🎉</div>
   <h2>You did it!</h2>
-  <p>The whole house is done. Take a breath and enjoy it.</p>
+  <p>The whole house is done.<br>Take a breath and enjoy it.</p>
   <button class="reset-btn" onclick="resetAll()">Start Fresh</button>
 </div>
 
@@ -380,8 +393,7 @@ const rooms = [
   },
 ];
 
-// Load state
-const STATE_KEY = 'quicktidy_state';
+const STATE_KEY = 'quicktidy_v2';
 let state = {};
 try { state = JSON.parse(localStorage.getItem(STATE_KEY)) || {}; } catch(e) { state = {}; }
 
@@ -396,7 +408,6 @@ function buildApp() {
   rooms.forEach(room => {
     if (!state[room.id]) state[room.id] = { open: false, checked: {} };
     const rs = state[room.id];
-
     const total = room.tasks.length;
     const doneCount = Object.values(rs.checked).filter(Boolean).length;
     const allDone = doneCount === total;
@@ -404,77 +415,69 @@ function buildApp() {
     const card = document.createElement('div');
     card.className = `room-card ${room.cls}${rs.open ? ' open' : ''}${allDone ? ' done' : ''}`;
 
-    const countBadge = allDone
+    const badge = allDone
       ? `<span class="room-done-badge">✓ Done!</span>`
       : `<span class="room-count">${doneCount}/${total}</span>`;
+
+    const taskRows = room.tasks.map((task, i) => {
+      if (rs.checked[i]) return '';
+      return `<div class="task-item" onclick="toggleTask('${room.id}',${i})">
+        <div class="task-checkbox" style="border-color:#ccc;"></div>
+        <span class="task-label">${task}</span>
+      </div>`;
+    }).join('');
+
+    const nudge = (!allDone && doneCount > 0)
+      ? `<div class="nudge">${doneCount} task${doneCount > 1 ? 's' : ''} done — keep going! 💪</div>` : '';
+    const allDoneMsg = allDone
+      ? `<div class="all-done-msg">All done! ✨</div>` : '';
 
     card.innerHTML = `
       <div class="room-header" onclick="toggleRoom('${room.id}')">
         <span class="room-icon">${room.icon}</span>
         <span class="room-title">${room.title}</span>
-        ${countBadge}
+        ${badge}
         <span class="room-chevron">${allDone ? '' : '▾'}</span>
       </div>
       <div class="task-list" id="tasks-${room.id}">
-        ${room.tasks.map((task, i) => {
-          const checked = !!rs.checked[i];
-          if (checked) return ''; // collapse done tasks
-          return `<div class="task-item${checked ? ' checked' : ''}" onclick="toggleTask('${room.id}', ${i})">
-            <div class="task-checkbox">${checked ? '✓' : ''}</div>
-            <span class="task-label">${task}</span>
-          </div>`;
-        }).join('')}
-        ${doneCount > 0 && !allDone ? `<div style="font-size:0.75rem;color:var(--mid);text-align:center;padding:4px 0;">${doneCount} task${doneCount>1?'s':''} done — keep going! 💪</div>` : ''}
-        ${allDone ? `<div style="text-align:center;padding:6px 0;font-size:0.9rem;color:var(--sage);font-weight:600;">All done! ✨</div>` : ''}
-      </div>
-    `;
+        ${taskRows}
+        ${nudge}
+        ${allDoneMsg}
+      </div>`;
+
     container.appendChild(card);
   });
 
   updateProgress();
 }
 
-function toggleRoom(roomId) {
-  state[roomId].open = !state[roomId].open;
+function toggleRoom(id) {
+  state[id].open = !state[id].open;
   saveState();
   buildApp();
 }
 
-function toggleTask(roomId, taskIndex) {
-  const room = rooms.find(r => r.id === roomId);
-  state[roomId].checked[taskIndex] = true; // only one-way: check off
+function toggleTask(roomId, i) {
+  state[roomId].checked[i] = true;
+  const total = rooms.find(r => r.id === roomId).tasks.length;
+  const done = Object.values(state[roomId].checked).filter(Boolean).length;
+  if (done === total) state[roomId].open = false;
   saveState();
-
-  const total = room.tasks.length;
-  const doneCount = Object.values(state[roomId].checked).filter(Boolean).length;
-
-  if (doneCount === total) {
-    state[roomId].open = false;
-  }
-
   buildApp();
 }
 
 function updateProgress() {
   let total = 0, done = 0;
-  rooms.forEach(room => {
-    total += room.tasks.length;
-    done += Object.values(state[room.id]?.checked || {}).filter(Boolean).length;
+  rooms.forEach(r => {
+    total += r.tasks.length;
+    done += Object.values(state[r.id]?.checked || {}).filter(Boolean).length;
   });
-
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = `${done} of ${total} tasks done`;
-
-  const congrats = document.getElementById('congrats');
-  const roomsContainer = document.getElementById('roomsContainer');
-  if (done === total && total > 0) {
-    congrats.classList.add('show');
-    roomsContainer.style.display = 'none';
-  } else {
-    congrats.classList.remove('show');
-    roomsContainer.style.display = '';
-  }
+  const allDone = done === total && total > 0;
+  document.getElementById('congrats').classList.toggle('show', allDone);
+  document.getElementById('roomsContainer').style.display = allDone ? 'none' : '';
 }
 
 function resetAll() {
